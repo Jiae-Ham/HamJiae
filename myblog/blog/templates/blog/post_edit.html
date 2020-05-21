@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+    <!-- forms.py의 양식을 이용해 폼을 작성할때는 action="목적지" 속성은 굳이 입력하지 않아도 된다. -->
+    <form method="POST" class="post-form">{% csrf_token %}
+    <!-- 양식을 담은 변수이름이 form이므로 form.as_p
+		다른 이름이라면 양식명.as_p 라고 적는다. -->
+        {{ form.as_p }}
+        <!-- 버튼은 작성이 완료되었을때 잘 제출 버튼으로 사용할것이므로 type="submit"으로, <button>의 여닫는 
+		부분 사이에 적은 문자는 그대로 버튼에 새겨진다. -->
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+
+
+
+
